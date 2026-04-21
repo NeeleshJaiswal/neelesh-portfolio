@@ -5,11 +5,13 @@ frontend:
       commands:
         - nvm install 18
         - nvm use 18
+        - export NODE_OPTIONS="--openssl-legacy-provider"
         - npm cache clean --force
         - rm -rf node_modules package-lock.json
         - npm install --legacy-peer-deps --no-optional --force
     build:
       commands:
+        - export NODE_OPTIONS="--openssl-legacy-provider"
         - npm run build
   artifacts:
     baseDirectory: build
