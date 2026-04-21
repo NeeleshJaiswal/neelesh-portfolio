@@ -3,11 +3,10 @@ frontend:
   phases:
     preBuild:
       commands:
-        - nvm install 18
-        - nvm use 18
-        - npm cache clean --force
+        - npm --version
+        - node --version
         - rm -rf node_modules package-lock.json
-        - npm install --no-optional --legacy-peer-deps
+        - npm install --registry https://registry.npmjs.org/ --no-audit --no-fund
     build:
       commands:
         - npm run build
